@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-size: 10px;
+}
+
+body {
+  @apply text-black bg-bodyBg;
+}
+
+.form-group input:focus-within ~ label,
+.form-group input:not(:placeholder-shown) ~ label {
+  @apply transform -translate-y-[8px] ml-3 px-3 py-0 text-12 h-7 z-10;
+}
+
+/* .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+  @apply mx-auto;
+} */
+html,body,#root{
+  height: 100%;
+}
+
+
+
