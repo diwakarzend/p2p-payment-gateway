@@ -21,7 +21,7 @@ export default function Payment() {
   }, []);
 
   const inputChangeHandler = (value) => {
-    const total = value + feeCharge;
+    const total = +value + +feeCharge;
     dispatch(
       setPaymentObject({ ...paymentObject, amount: value, totalAmount: total })
     );

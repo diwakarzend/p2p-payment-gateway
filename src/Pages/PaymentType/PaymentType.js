@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 import { numberToWords } from "../Payment/constants";
 import ScanQr from "./ScanQr";
 // import Phone from "./Phone";
@@ -9,9 +10,20 @@ import { Wrapper } from "./style";
 export default function PaymentType() {
   const paymentObject = useSelector((state) => state?.payment);
   const [activeTab, setActiveTab] = useState("tab1");
+  const [count, setCount] = useState(15);
   const handleTab1 = () => {
     setActiveTab("tab1");
   };
+
+  useEffect(() => {
+    if (count > 0) {
+      setTimeout(() => {
+        setCount(count - 1);
+      }, 1000);
+    } else {
+      Navigate("/payment-error");
+    }
+  }, [count]);
   // const handleTab2 = () => {
   //   setActiveTab("tab2");
   // };
@@ -67,7 +79,9 @@ export default function PaymentType() {
                 </div>
               </div>
               <div className="right">
-                <div className="timer text text-16 text-grey/80">15.25 min</div>
+                <div className="timer text text-16 text-grey/80">
+                  {count} min
+                </div>
               </div>
             </div>
             <div className="innerContent">

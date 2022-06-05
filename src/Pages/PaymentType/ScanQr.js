@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { verifyUtrRequest } from "../../utils/api";
+import { getAllPtpsByMerchantId, verifyUtrRequest } from "../../utils/api";
 import ScanImage from "../../assets/images/scan-image.png";
 import SepratorImage from "../../assets/images/seprator.png";
 import SocialGroupImage from "../../assets/images/icons-group.png";
@@ -8,12 +9,32 @@ import SocialGroupImage from "../../assets/images/icons-group.png";
 export default function ScanQr() {
   const navigate = useNavigate();
   const [utrId, setUtrId] = useState("");
+  const [qrdata, setQrdata] = useState(null);
+  const [error, setError] = useState("");
+  const vendorDetails = useSelector((state) => state?.vendorDetails?.data);
+  useEffect(() => {
+    const userUUID = "62a03898-1991-488c-bba1-711022d45ee4";
+    getAllPtpsByMerchantId(userUUID).then((res) => {
+      if (res?.data?.data) {
+        const qrd = res?.data?.data.filter(
+          (data) => data?.vendorId == vendorDetails?.id
+        )[0];
+        setQrdata(qrd);
+      }
+    });
+  }, []);
+
+  console.log("qrdata = ", qrdata);
 
   const onVerifyUtr = () => {
     if (utrId) {
       verifyUtrRequest(utrId).then((res) => {
         console.log(res);
-        navigate("/payment-success");
+        if (res?.data?.verified) {
+          navigate("/payment-success");
+        } else {
+          setError("Invalid UTR Number");
+        }
       });
     }
   };
@@ -24,11 +45,11 @@ export default function ScanQr() {
         <div className="group-wrap">
           <div className="py-5 mb-5 px-8 bg-bodyBg rounded-lg flex justify-between items-center">
             <div className="title text-15 text-grey/80">UPI ID</div>
-            <div className="text text-15 ">qder8524r@okaxis</div>
+            <div className="text text-15 ">{qrdata?.vpaId || ""}</div>
           </div>
-          <div className="scan-outer relative max-w-xs w-full mx-auto mb-8 h-80">
+          <div className="scan-outer relative max-w-xs w-full mx-auto mb-8 h-80 overflow-hidden">
             <div className="scan-inner relative w-full h-full flex items-center justify-center">
-              <img src={ScanImage} alt="Scanner" />
+              <img src={qrdata?.qrDetails} alt="Scanner" />
             </div>
           </div>
           <div className="flex justify-center text-13 text-red mb-6">
@@ -61,6 +82,7 @@ export default function ScanQr() {
                   UTR ID
                 </label>
               </div>
+              <div className="error text-14 text-red">{error}</div>
               <div className="action w-full left-0 flex mt-8">
                 <button
                   onClick={() => onVerifyUtr()}

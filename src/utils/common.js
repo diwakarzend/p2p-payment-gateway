@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const getStorage = (key) => {
   return localStorage.getItem(key);
 };
@@ -121,4 +123,46 @@ export function currencyFormat(
     minimumFractionDigits,
     maximumFractionDigits,
   }).format(num);
+}
+
+export function getQueryParams(query) {
+  const queryArray = query.split("?")[1].split("&");
+  const queryParams = {};
+  for (let i = 0; i < queryArray.length; i++) {
+    const [key, val] = queryArray[i].split("=");
+    queryParams[key] = val || true;
+  }
+  return queryParams;
+}
+
+export function saveAuthToken(item, value) {
+  sessionStorage.setItem(item, `Bearer ${value}`);
+  setAuthorizationToken(value);
+}
+
+export function getAuthToken(type) {
+  return type
+    ? sessionStorage.getItem(type)
+    : sessionStorage.getItem("Authorization");
+}
+
+export function setAuthorizationToken(token) {
+  if (token) {
+    axios.defaults.headers.common["token"] = token;
+  } else {
+    delete axios.defaults.headers.common["token"];
+  }
+}
+
+export function isAuthenticated(response) {
+  if (response && response.data) {
+    if (response.data.id_token && response.data.api_token) {
+      saveAuthToken("Authorization", response.data.id_token);
+      saveAuthToken("api-Authorization", response.data.api_token);
+      return true;
+    }
+    return false;
+  } else if (!isEmpty(getAuthToken())) {
+    return true;
+  }
 }

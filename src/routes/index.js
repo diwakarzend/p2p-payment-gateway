@@ -13,6 +13,7 @@ const PaymentOptions = lazyLoad(
 const PaymentSuccess = lazyLoad(
   lazy(() => import("../Pages/PaymentSuccess/PaymentSuccess"))
 );
+const PaymentError = lazyLoad(lazy(() => import("../Pages/Error")));
 
 function RouteComponent() {
   return (
@@ -23,6 +24,7 @@ function RouteComponent() {
       <Route path="/" element={<Payment />} />
       <Route path="/payment-options" element={<PaymentOptions />} />
       <Route path="/payment-success" element={<PaymentSuccess />} />
+      <Route path="/payment-error" element={<PaymentError />} />
     </Routes>
   );
 }
