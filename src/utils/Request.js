@@ -57,8 +57,7 @@ class Request {
       // const headers = error.hasOwnProperty('headers') ? headers : null;
 
       if (error && error.response && error.response.status === 401) {
-        userLogout();
-        window.location.href = "/admin";
+        console.log("no auth");
       }
       console.log("Error => ", error);
       this.errorFn(error);
