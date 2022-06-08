@@ -107,7 +107,8 @@ class Request {
       //  console.log("Error => ", error.response);
       if (error && error.response && error.response.status == "401") {
         // need to check the status code for making user logout
-        userLogout();
+        // userLogout();
+        console.log("error 401");
       }
 
       //   this.errorFn(data, status);
