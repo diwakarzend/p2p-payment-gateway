@@ -53,4 +53,10 @@ export const Wrapper = styled.div`
       }
     }
   }
+  .pic {
+    max-width: calc(100% - 20px);
+    overflow: hidden;
+    border-radius: 25px;
+    top: 14px;
+  }
 `;

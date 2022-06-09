@@ -83,6 +83,11 @@ export default function ScanQr() {
                 </label>
               </div>
               <div className="error text-14 text-red">{error}</div>
+              <div className="error text-12 text-red mt-8 text-center">
+                Important reminder: After completing the UPI transaction please
+                backfill UTR No. If you do not backfill UTR, 100% of deposit
+                will fail. Please be sure to be backfill.
+              </div>
               <div className="action w-full left-0 flex mt-8">
                 <button
                   onClick={() => onVerifyUtr()}
