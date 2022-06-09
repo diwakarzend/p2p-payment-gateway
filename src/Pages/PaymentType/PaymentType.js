@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { numberToWords } from "../Payment/constants";
 import ScanQr from "./ScanQr";
 // import Phone from "./Phone";
@@ -14,14 +14,14 @@ export default function PaymentType() {
   const handleTab1 = () => {
     setActiveTab("tab1");
   };
-
+ const navigate=useNavigate();
   useEffect(() => {
     if (count > 0) {
       setTimeout(() => {
         setCount(count - 1);
-      }, 1000);
+      }, 6000);
     } else {
-      Navigate("/payment-error");
+      navigate("/payment-error");
     }
   }, [count]);
   // const handleTab2 = () => {
