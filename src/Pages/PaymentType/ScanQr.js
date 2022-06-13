@@ -29,8 +29,8 @@ export default function ScanQr() {
   const onVerifyUtr = () => {
     if (utrId) {
       verifyUtrRequest(utrId).then((res) => {
-        console.log(res);
-        if (res?.data?.verified) {
+        console.log("logging here", res?.data.data.verified);
+        if (res?.data?.data?.verified == 'true') {
           navigate("/payment-success");
         } else {
           setError("Invalid UTR Number");

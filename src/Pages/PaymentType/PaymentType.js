@@ -17,6 +17,16 @@ export default function PaymentType() {
   const handleTab1 = () => {
     setActiveTab("tab1");
   };
+ const navigate=useNavigate();
+  useEffect(() => {
+    if (count > 0) {
+      setTimeout(() => {
+        setCount(count - 1);
+      }, 6000);
+    } else {
+      navigate("/payment-error");
+    }
+  }, [count]);
   // const handleTab2 = () => {
   //   setActiveTab("tab2");
   // };
