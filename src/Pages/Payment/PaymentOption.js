@@ -18,13 +18,14 @@ export default function PaymentOption() {
   const location = useLocation();
   const auth = getAuthToken();
   const dispatch = useDispatch();
+  const [vendorList, setVendorList] = useState([]);
   useEffect(() => {
     const queryParams = getQueryParams(location?.search);
     console.log("queryParams = ", queryParams);
     const { username, password, tenantId, AMOUNT } = queryParams;
     loginRequest({ username, password, tenantId }).then((res) => {
       if (res?.data) {
-        isAuthenticated(res);
+        const isAuth = isAuthenticated(res);
         dispatch(
           setPaymentObject({
             ...paymentObject,
@@ -32,20 +33,19 @@ export default function PaymentOption() {
             totalAmount: AMOUNT,
           })
         );
+        if (isAuth) {
+          console.log("inner");
+          const params = {
+            pageNo: 1,
+            pageSize: 10,
+          };
+          getVendorDetails(params).then((res) => {
+            setVendorList(res?.data?.data);
+          });
+        }
       }
     });
   }, []);
-
-  const [vendorList, setVendorList] = useState([]);
-  useEffect(() => {
-    const params = {
-      pageNo: 1,
-      pageSize: 10,
-    };
-    getVendorDetails(params).then((res) => {
-      setVendorList(res?.data?.data);
-    });
-  }, [auth]);
 
   const onPaymentOptionClick = (data) => {
     dispatch(setVendorDetails(data || null));
