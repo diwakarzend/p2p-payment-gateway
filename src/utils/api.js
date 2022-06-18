@@ -9,7 +9,7 @@ const apiRequest = new Request(
 
 export const loginRequest = (params) => {
   return apiRequest.post(
-    `${config.apis.LOGIN_URL}?hash=${params.hash}&amount=${params.amount}&clientid=${params.clientId}`
+    `${config.apis.LOGIN_URL}?hash=${params.hash}&amount=${params.amount}&clientId=${params.clientId}`
   );
 };
 
