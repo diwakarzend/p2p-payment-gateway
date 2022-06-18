@@ -38,9 +38,13 @@ export default function PaymentOption() {
           pageNo: 1,
           pageSize: 10,
         };
+       
+        if(isAuthenticated(res)){
+
         getVendorDetails(params).then((res) => {
           setVendorList(res?.data?.data);
         });
+      }
       }
     });
   }, []);
