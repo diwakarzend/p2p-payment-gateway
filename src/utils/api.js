@@ -8,7 +8,9 @@ const apiRequest = new Request(
 );
 
 export const loginRequest = (params) => {
-  return apiRequest.post(config.apis.LOGIN_URL, params);
+  return apiRequest.post(
+    `${config.apis.LOGIN_URL}?hash=${params.hash}&amount=${params.amount}`
+  );
 };
 
 export const getVendorDetails = (params = {}) => {
@@ -21,3 +23,9 @@ export const getAllPtpsByMerchantId = (id) => {
 export const verifyUtrRequest = (id) => {
   return apiRequest.get(`${config.apis.VERIFY_UTR_ID}/${id}`, {});
 };
+
+// amount,
+// txnType,
+// custName,
+// clientId,
+// hash,

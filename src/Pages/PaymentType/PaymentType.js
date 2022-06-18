@@ -14,10 +14,10 @@ export default function PaymentType() {
   const paymentObject = useSelector((state) => state?.payment);
   const [activeTab, setActiveTab] = useState("tab1");
   const navigate = useNavigate();
+  const [count, setCount] = useState(15);
   const handleTab1 = () => {
     setActiveTab("tab1");
   };
- const navigate=useNavigate();
   useEffect(() => {
     if (count > 0) {
       setTimeout(() => {
@@ -27,12 +27,6 @@ export default function PaymentType() {
       navigate("/payment-error");
     }
   }, [count]);
-  // const handleTab2 = () => {
-  //   setActiveTab("tab2");
-  // };
-  // const handleTab3 = () => {
-  //   setActiveTab("tab3");
-  // };
 
   // Renderer callback with condition
   const renderer = ({ hours, minutes, seconds, completed }) => {

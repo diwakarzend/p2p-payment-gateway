@@ -22,27 +22,25 @@ export default function PaymentOption() {
   useEffect(() => {
     const queryParams = getQueryParams(location?.search);
     console.log("queryParams = ", queryParams);
-    const { username, password, tenantId, AMOUNT } = queryParams;
-    loginRequest({ username, password, tenantId }).then((res) => {
+    const { hash, amount } = queryParams;
+    loginRequest({ hash, amount }).then((res) => {
       if (res?.data) {
-        const isAuth = isAuthenticated(res);
         dispatch(
           setPaymentObject({
             ...paymentObject,
-            amount: AMOUNT,
-            totalAmount: AMOUNT,
+            amount: amount,
+            totalAmount: amount,
           })
         );
-        if (isAuth) {
-          console.log("inner");
-          const params = {
-            pageNo: 1,
-            pageSize: 10,
-          };
-          getVendorDetails(params).then((res) => {
-            setVendorList(res?.data?.data);
-          });
-        }
+
+        console.log("inner");
+        const params = {
+          pageNo: 1,
+          pageSize: 10,
+        };
+        getVendorDetails(params).then((res) => {
+          setVendorList(res?.data?.data);
+        });
       }
     });
   }, []);
