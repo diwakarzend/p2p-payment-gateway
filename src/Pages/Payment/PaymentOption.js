@@ -22,8 +22,8 @@ export default function PaymentOption() {
   useEffect(() => {
     const queryParams = getQueryParams(location?.search);
     console.log("queryParams = ", queryParams);
-    const { hash, amount } = queryParams;
-    loginRequest({ hash, amount }).then((res) => {
+    const { hash, amount, clientId } = queryParams;
+    loginRequest({ hash, amount, clientId }).then((res) => {
       if (res?.data) {
         dispatch(
           setPaymentObject({
