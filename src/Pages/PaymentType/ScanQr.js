@@ -16,7 +16,7 @@ export default function ScanQr() {
 
   const vendorDetails = useSelector((state) => state?.vendorDetails?.data);
 
-  console.log("statessssss"+vendorDetails);
+  console.log("statessssss",vendorDetails);
 
   //const orderId = useSelector((state) => orderId));
 
