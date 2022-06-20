@@ -44,7 +44,7 @@ export default function ScanQr() {
   const onVerifyUtr = () => {
     if (utrId) {
       
-      verifyUtrRequest(utrId, "62a03898-1991-488c-bba1-711022d45ee4", "tersorder").then((res) => {
+      verifyUtrRequest(utrId, "62a03898-1991-488c-bba1-711022d45ee4", paymentObject?.orderId).then((res) => {
         console.log("logging here", res?.data.data.verified);
         if (res?.data?.data?.verified == 'true') {
           navigate("/payment-success");
