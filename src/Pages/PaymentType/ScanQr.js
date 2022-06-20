@@ -7,6 +7,7 @@ import SepratorImage from "../../assets/images/seprator.png";
 import SocialGroupImage from "../../assets/images/icons-group.png";
 
 export default function ScanQr() {
+  const paymentObject = useSelector((state) => state?.payment);
   const navigate = useNavigate();
   const [utrId, setUtrId] = useState("");
   const [qrdata, setQrdata] = useState(null);
@@ -16,7 +17,7 @@ export default function ScanQr() {
 
   const vendorDetails = useSelector((state) => state?.vendorDetails?.data);
 
-  console.log("statessssss",vendorDetails);
+  console.log("statessssss",paymentObject);
 
   //const orderId = useSelector((state) => orderId));
 
