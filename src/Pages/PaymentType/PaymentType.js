@@ -96,7 +96,7 @@ export default function PaymentType() {
               </div>
             </div>
             <div className="innerContent">
-              <ScanQr />
+              <ScanQr orderId={paymentObject?.orderId} />
               {/* {activeTab === "tab1" ? (
                 <ScanQr />
               ) : activeTab === "tab2" ? (

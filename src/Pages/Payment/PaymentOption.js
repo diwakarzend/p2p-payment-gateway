@@ -23,7 +23,7 @@ export default function PaymentOption() {
     const queryParams = getQueryParams(location?.search);
     console.log("queryParams = ", queryParams);
     const { hash, amount, clientId, orderId } = queryParams;
-    loginRequest({ hash, amount, clientId, orderId }).then((res) => {
+    loginRequest({ hash, amount}).then((res) => {
       if (res?.data) {
         dispatch(
           setPaymentObject({

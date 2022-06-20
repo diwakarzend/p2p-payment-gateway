@@ -11,13 +11,20 @@ export default function ScanQr() {
   const [utrId, setUtrId] = useState("");
   const [qrdata, setQrdata] = useState(null);
   const [error, setError] = useState("");
+
+
+
   const vendorDetails = useSelector((state) => state?.vendorDetails?.data);
 
-  const clientId = vendorDetails?.clientId;
-  console.log("client id",clientId);
+  console.log("statessssss"+vendorDetails);
 
-  const orderId = vendorDetails?.orderId;
-  console.log("orderId",orderId);
+  //const orderId = useSelector((state) => orderId));
+
+  // const clientId = vendorDetails?.clientId;
+  // console.log("client id",clientId);
+
+ // const orderId = vendorDetails?.orderId;
+//  console.log("orderId",orderId);
 
   useEffect(() => {
     const userUUID = "62a03898-1991-488c-bba1-711022d45ee4";
@@ -35,7 +42,8 @@ export default function ScanQr() {
 
   const onVerifyUtr = () => {
     if (utrId) {
-      verifyUtrRequest(utrId, clientId, orderId).then((res) => {
+      
+      verifyUtrRequest(utrId, "62a03898-1991-488c-bba1-711022d45ee4", "tersorder").then((res) => {
         console.log("logging here", res?.data.data.verified);
         if (res?.data?.data?.verified == 'true') {
           navigate("/payment-success");
