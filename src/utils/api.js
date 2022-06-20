@@ -14,14 +14,18 @@ export const loginRequest = (params) => {
 };
 
 export const getVendorDetails = (params = {}) => {
-  return apiRequest.get(config.apis.GET_VENDOR_DETAILS, params);
+
+  return apiRequest.get(config.apis.GET_VENDOR_DETAILS, params, );
 };
 
 export const getAllPtpsByMerchantId = (id) => {
   return apiRequest.get(`${config.apis.PTP_BY_MERCHANT_ID}/${id}`);
 };
-export const verifyUtrRequest = (id) => {
-  return apiRequest.get(`${config.apis.VERIFY_UTR_ID}/${id}`, {});
+export const verifyUtrRequest = (id, clientId, orderId) => {
+  console.log("merchantId",clientId);
+  console.log("orderId",orderId);
+
+  return apiRequest.get(`${config.apis.VERIFY_UTR_ID}/${id}/${clientId}/${orderId}`, {});
 };
 
 // amount,
