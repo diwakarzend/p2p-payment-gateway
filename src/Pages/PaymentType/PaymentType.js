@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Countdown from "react-countdown";
-import { numberToWords } from "../Payment/constants";
+import { numberToWords, vendorDetails } from "../Payment/constants";
 import videoImg from "../../assets/images/mobile-pay.jpeg";
 import mobileBg from "../../assets/images/mobile-bg.png";
+import paytmPic from "../../assets/images/paytm.jpeg";
+import phonePayPic from "../../assets/images/phone-pay.jpeg";
 import ScanQr from "./ScanQr";
 // import Phone from "./Phone";
 // import VpaId from "./VpaId";
@@ -12,6 +14,11 @@ import { Wrapper } from "./style";
 
 export default function PaymentType() {
   const paymentObject = useSelector((state) => state?.payment);
+  const state = useSelector((state) => state);
+  console.log("state = ", state);
+  const brandName = useSelector(
+    (state) => state?.vendorDetails?.data?.brandName || ""
+  );
   const [activeTab, setActiveTab] = useState("tab1");
   const navigate = useNavigate();
   const handleTab1 = () => {
@@ -98,10 +105,13 @@ export default function PaymentType() {
           </div>
           <div className="flex flex-1 items-center justify-center">
             <div className="mobile-pay relative max-w-[260px]">
-              <img src={mobileBg} alt="" />
-              <div className="pic absolute left-[10px] top-[14px] rounded-[25px]">
+              <img
+                src={brandName != "PHONEPE" ? paytmPic : phonePayPic}
+                alt=""
+              />
+              {/* <div className="pic absolute left-[10px] top-[14px] rounded-[25px]">
                 <img src={videoImg} alt="" />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

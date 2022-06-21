@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import { getAllPtpsByMerchantId, verifyUtrRequest } from "../../utils/api";
 import ScanImage from "../../assets/images/scan-image.png";
 import SepratorImage from "../../assets/images/seprator.png";
@@ -13,23 +14,20 @@ export default function ScanQr() {
   const [qrdata, setQrdata] = useState(null);
   const [error, setError] = useState("");
 
-
-
   const vendorDetails = useSelector((state) => state?.vendorDetails?.data);
 
-
-  console.log("statessssss",paymentObject);
+  console.log("statessssss", paymentObject);
 
   //const orderId = useSelector((state) => orderId));
 
   // const clientId = vendorDetails?.clientId;
   // console.log("client id",clientId);
 
- // const orderId = vendorDetails?.orderId;
-//  console.log("orderId",orderId);
+  // const orderId = vendorDetails?.orderId;
+  //  console.log("orderId",orderId);
 
   useEffect(() => {
-  //  const queryParams = getQueryParams(location?.search);
+    //  const queryParams = getQueryParams(location?.search);
     const userUUID = "62a03898-1991-488c-bba1-711022d45ee4";
     getAllPtpsByMerchantId(userUUID).then((res) => {
       if (res?.data?.data) {
@@ -43,25 +41,27 @@ export default function ScanQr() {
 
   console.log("qrdata = ", qrdata);
 
-  if(!qrdata){
+  if (!qrdata) {
     if (window.performance) {
       if (performance.navigation.type == 1) {
-        window.location = "https://malipohuduma.com/payment/status/inrpay/fraudmanage.xyz?status='failed'";
+        window.location =
+          "https://malipohuduma.com/payment/status/inrpay/fraudmanage.xyz?status='failed'";
       } else {
         //alert( "This page is not reloaded");
       }
     }
-     // window.paymentObject?.backurl
+    // window.paymentObject?.backurl
   }
-
-  
 
   const onVerifyUtr = () => {
     if (utrId) {
-      
-      verifyUtrRequest(utrId, "62a03898-1991-488c-bba1-711022d45ee4", paymentObject?.orderId).then((res) => {
+      verifyUtrRequest(
+        utrId,
+        "62a03898-1991-488c-bba1-711022d45ee4",
+        paymentObject?.orderId
+      ).then((res) => {
         console.log("logging here", res?.data.data.verified);
-        if (res?.data?.data?.verified == 'true') {
+        if (res?.data?.data?.verified == "true") {
           navigate("/payment-success");
         } else {
           setError("Invalid UTR Number");
@@ -76,7 +76,14 @@ export default function ScanQr() {
         <div className="group-wrap">
           <div className="py-5 mb-5 px-8 bg-bodyBg rounded-lg flex justify-between items-center">
             <div className="title text-15 text-grey/80">UPI ID</div>
-            <div className="text text-15 ">{qrdata?.vpaId || ""}</div>
+            <CopyToClipboard
+              text={qrdata?.vpaId}
+              onCopy={() => console.log("copied.")}
+            >
+              <div title="Click to copy" className="text text-15 ">
+                {qrdata?.vpaId || ""}
+              </div>
+            </CopyToClipboard>
           </div>
           <div className="scan-outer relative max-w-xs w-full mx-auto mb-8 h-80 overflow-hidden">
             <div className="scan-inner relative w-full h-full flex items-center justify-center">
