@@ -22,9 +22,12 @@ export default function PaymentOption() {
   useEffect(() => {
     const queryParams = getQueryParams(location?.search);
     console.log("queryParams = ", queryParams);
-    const { hash, amount, clientId, orderId } = queryParams;
+    const { hash, amount, clientId, orderId, RETURN_URL } = queryParams;
     loginRequest({ hash, amount}).then((res) => {
       if (res?.data) {
+        navigate(RETURN_URL+"?status='Transaction Failed'");
+   
+      }else{
         dispatch(
           setPaymentObject({
             ...paymentObject,
@@ -44,7 +47,7 @@ export default function PaymentOption() {
         if(isAuthenticated(res)){
 
         getVendorDetails(params).then((res) => {
-          setVendorList(res?.data?.data);
+              setVendorList(res?.data?.data);
         });
       }
       }
@@ -52,6 +55,7 @@ export default function PaymentOption() {
   }, []);
 
   const onPaymentOptionClick = (data) => {
+
     dispatch(setVendorDetails(data || null));
     navigate("/payment-type");
   };
