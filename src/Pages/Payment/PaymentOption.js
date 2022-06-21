@@ -51,7 +51,7 @@ export default function PaymentOption() {
         });
       }
       }else{
-        Window.location(RETURN_URL);
+        Window.location.replace(RETURN_URL);
       }
     });
   }, []);
