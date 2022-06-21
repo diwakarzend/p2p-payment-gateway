@@ -25,9 +25,7 @@ export default function PaymentOption() {
     const { hash, amount, clientId, orderId, RETURN_URL } = queryParams;
     loginRequest({ hash, amount}).then((res) => {
       if (res?.data) {
-        navigate(RETURN_URL+"?status='Transaction Failed'");
-   
-      }else{
+        
         dispatch(
           setPaymentObject({
             ...paymentObject,
@@ -50,6 +48,8 @@ export default function PaymentOption() {
               setVendorList(res?.data?.data);
         });
       }
+      }else{
+        navigate(RETURN_URL+"?status='Transaction Failed'");
       }
     });
   }, []);

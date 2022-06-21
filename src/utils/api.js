@@ -9,7 +9,8 @@ const apiRequest = new Request(
 
 export const loginRequest = (params) => {
   return apiRequest.get(
-    `${config.apis.LOGIN_URL}?hash=${params.hash}&amount=${params.amount}&clientId=${params.clientId}`
+    `${config.apis.LOGIN_URL}?hash=${params.hash}&amount=${params.amount}&clientId=${params.clientId}
+    &apiKey=${params.apiKey}&orderId=${params.orderId}&URL=${params.URL}&RETURN_URL=${params.RETURN_URL}`
   );
 };
 
