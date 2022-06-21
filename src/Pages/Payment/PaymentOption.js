@@ -7,7 +7,7 @@ import { setVendorDetails } from "../../store/actions/vendorDetails";
 import { numberToWords } from "./constants";
 import Netbanking from "../../assets/images/netbanking.png";
 
-import { Redirect } from "react-router-dom";
+
 import { Wrapper } from "./style";
 import {
   getAuthToken,

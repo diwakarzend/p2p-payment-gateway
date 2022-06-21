@@ -54,6 +54,8 @@ export default function ScanQr() {
      // window.paymentObject?.backurl
   }
 
+  
+
   const onVerifyUtr = () => {
     if (utrId) {
       
