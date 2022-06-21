@@ -14,19 +14,9 @@ export default function PaymentType() {
   const paymentObject = useSelector((state) => state?.payment);
   const [activeTab, setActiveTab] = useState("tab1");
   const navigate = useNavigate();
-  const [count, setCount] = useState(15);
   const handleTab1 = () => {
     setActiveTab("tab1");
   };
-  useEffect(() => {
-    if (count > 0) {
-      setTimeout(() => {
-        setCount(count - 1);
-      }, 90000);
-    } else {
-      navigate("/payment-error");
-    }
-  }, [count]);
 
   // Renderer callback with condition
   const renderer = ({ hours, minutes, seconds, completed }) => {
