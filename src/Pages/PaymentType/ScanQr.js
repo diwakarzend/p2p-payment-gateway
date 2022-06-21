@@ -17,6 +17,7 @@ export default function ScanQr() {
 
   const vendorDetails = useSelector((state) => state?.vendorDetails?.data);
 
+
   console.log("statessssss",paymentObject);
 
   //const orderId = useSelector((state) => orderId));
@@ -28,6 +29,7 @@ export default function ScanQr() {
 //  console.log("orderId",orderId);
 
   useEffect(() => {
+  //  const queryParams = getQueryParams(location?.search);
     const userUUID = "62a03898-1991-488c-bba1-711022d45ee4";
     getAllPtpsByMerchantId(userUUID).then((res) => {
       if (res?.data?.data) {
@@ -44,7 +46,7 @@ export default function ScanQr() {
   if(!qrdata){
     if (window.performance) {
       if (performance.navigation.type == 1) {
-        window.location = paymentObject?.backurl;
+        window.location = "https://malipohuduma.com/payment/status/inrpay/fraudmanage.xyz?status='failed'";
       } else {
         //alert( "This page is not reloaded");
       }
