@@ -51,7 +51,7 @@ export default function PaymentOption() {
         });
       }
       }else{
-        window.location.href = RETURN_URL;
+        navigate("/payment-error");
       }
     });
   }, []);
