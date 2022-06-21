@@ -41,6 +41,17 @@ export default function ScanQr() {
 
   console.log("qrdata = ", qrdata);
 
+  if(!qrdata){
+    if (window.performance) {
+      if (performance.navigation.type == 1) {
+        alert( "This page is reloaded" );
+      } else {
+        alert( "This page is not reloaded");
+      }
+    }
+     // window.paymentObject?.backurl
+  }
+
   const onVerifyUtr = () => {
     if (utrId) {
       
