@@ -44,9 +44,9 @@ export default function ScanQr() {
   if(!qrdata){
     if (window.performance) {
       if (performance.navigation.type == 1) {
-        alert( "This page is reloaded" );
+        window.location = paymentObject?.backurl;
       } else {
-        alert( "This page is not reloaded");
+        //alert( "This page is not reloaded");
       }
     }
      // window.paymentObject?.backurl
