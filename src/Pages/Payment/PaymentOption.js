@@ -6,6 +6,8 @@ import { setPaymentObject } from "../../store/actions/payment";
 import { setVendorDetails } from "../../store/actions/vendorDetails";
 import { numberToWords } from "./constants";
 import Netbanking from "../../assets/images/netbanking.png";
+
+import { Redirect } from "react-router-dom";
 import { Wrapper } from "./style";
 import {
   getAuthToken,
@@ -49,7 +51,7 @@ export default function PaymentOption() {
         });
       }
       }else{
-        navigate(RETURN_URL+"?status='Transaction Failed'");
+        Window.location(RETURN_URL);
       }
     });
   }, []);
