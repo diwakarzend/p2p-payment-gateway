@@ -22,7 +22,7 @@ export default function PaymentType() {
     if (count > 0) {
       setTimeout(() => {
         setCount(count - 1);
-      }, 6000);
+      }, 90000);
     } else {
       navigate("/payment-error");
     }
