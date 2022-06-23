@@ -95,7 +95,7 @@ export default function ScanQr() {
           </div>
           <div className="relative flex justify-center text-13 mb-1">
             <img src={SepratorImage} alt="Seprator" />
-            <span className="absolute top-2 left-0 right-0 text-center text-white text-15 font-bold">
+            <span className="absolute top-2 left-0 right-0 text-center text-white text-15 font-bold text-payment">
               Paytm, PhonePe, GPay, BHIM & More
             </span>
           </div>

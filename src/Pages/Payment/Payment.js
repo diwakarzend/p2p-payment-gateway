@@ -6,9 +6,9 @@ import { Wrapper } from "./style";
 
 const classMap = {
   default:
-    "bg-white w-40 hover:bg-gray-100 text-gray text-15 py-2 px-4 border border-grey rounded-lg shadow h-[50px]",
+    "bg-white w-30 sm:w-40 hover:bg-gray-100 text-gray text-15 py-2 px-4 border border-grey rounded-lg shadow h-[50px]",
   active:
-    "bg-blue w-40 hover:bg-gray-100 text-white text-15 py-2 px-4 border border-blue rounded-lg shadow h-[50px]",
+    "bg-blue w-30 sm:w-40 hover:bg-gray-100 text-white text-15 py-2 px-4 border border-blue rounded-lg shadow h-[50px]",
 };
 
 export default function Payment() {
@@ -37,8 +37,8 @@ export default function Payment() {
 
   return (
     <>
-      <Wrapper className="overflow-y-auto relative w-full inset-0 h-modal justify-center flex p-20">
-        <div className="payment-page relative px-24 pt-20 pb-60 w-full max-w-4xl h-auto bg-white rounded-lg drop-shadow-2xl">
+      <Wrapper className="overflow-y-auto relative w-full inset-0 h-modal justify-center flex py-20 px-8 sm:px-20">
+        <div className="payment-page relative px-8 sm:px-24 pt-20 pb-60 w-full max-w-4xl h-auto bg-white rounded-lg drop-shadow-2xl">
           <h3 class=" text-20  font-semibold mb-2">Make Payment</h3>
           <div className="mt-12 relative">
             <div className="form-group-wrap">

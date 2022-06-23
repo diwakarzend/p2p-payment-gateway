@@ -26,7 +26,7 @@ export default function PaymentSuccess() {
 
   return (
     <>
-      <Wrapper className="overflow-y-auto relative w-full inset-0 h-modal justify-center flex p-20">
+      <Wrapper className="overflow-y-auto relative w-full inset-0 h-modal justify-center flex py-20 px-8 sm:px-20">
         <div className="payment-success relative w-full max-w-[445px] h-[650px] bg-white rounded-lg drop-shadow-2xl border-t-4 border-t-red border-solid">
           <div className="payment-success-inner relative px-10 h-full pt-52">
             <div className="relative flex justify-center mt-2 mb-8">

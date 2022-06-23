@@ -7,7 +7,6 @@ import { setVendorDetails } from "../../store/actions/vendorDetails";
 import { numberToWords } from "./constants";
 import Netbanking from "../../assets/images/netbanking.png";
 
-
 import { Wrapper } from "./style";
 import {
   getAuthToken,
@@ -24,18 +23,27 @@ export default function PaymentOption() {
   useEffect(() => {
     const queryParams = getQueryParams(location?.search);
     console.log("queryParams = ", queryParams);
-    const { hash, apiKey, amount, clientId, orderId, URL, RETURN_URL } = queryParams;
-    loginRequest({ hash, apiKey, amount, clientId, orderId, URL, RETURN_URL , amount}).then((res) => {
+    const { hash, apiKey, amount, clientId, orderId, URL, RETURN_URL } =
+      queryParams;
+    loginRequest({
+      hash,
+      apiKey,
+      amount,
+      clientId,
+      orderId,
+      URL,
+      RETURN_URL,
+      amount,
+    }).then((res) => {
       if (res?.data) {
-        
         dispatch(
           setPaymentObject({
             ...paymentObject,
             amount: amount,
             totalAmount: amount,
-            clientId:clientId,
-            orderId:orderId,
-            backurl:RETURN_URL
+            clientId: clientId,
+            orderId: orderId,
+            backurl: RETURN_URL,
           })
         );
 
@@ -44,29 +52,27 @@ export default function PaymentOption() {
           pageNo: 1,
           pageSize: 10,
         };
-       
-        if(isAuthenticated(res)){
 
-        getVendorDetails(params).then((res) => {
-              setVendorList(res?.data?.data);
-        });
-      }
-      }else{
+        if (isAuthenticated(res)) {
+          getVendorDetails(params).then((res) => {
+            setVendorList(res?.data?.data);
+          });
+        }
+      } else {
         navigate("/payment-error");
       }
     });
   }, []);
 
   const onPaymentOptionClick = (data) => {
-
     dispatch(setVendorDetails(data || null));
     navigate("/payment-type");
   };
 
   return (
     <>
-      <Wrapper className="overflow-y-auto relative w-full inset-0 h-modal justify-center flex p-20">
-        <div className="payment-page relative px-14 pt-12 pb-60 w-full max-w-7xl h-auto bg-white rounded-lg drop-shadow-2xl">
+      <Wrapper className="overflow-y-auto relative w-full inset-0 h-modal justify-center flex py-20 px-8 sm:px-20">
+        <div className="payment-page relative px-8 sm:px-14 pt-12 pb-60 w-full max-w-7xl h-auto bg-white rounded-lg drop-shadow-2xl">
           <h3 class=" text-20  font-semibold mb-12">Payment Option</h3>
           <div className="mt-12 relative">
             <div className="group-wrap">
