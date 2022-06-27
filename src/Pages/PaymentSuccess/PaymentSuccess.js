@@ -1,19 +1,24 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import SuccessfulImage from "../../assets/images/successful.png";
 import ShareImage from "../../assets/images/share.png";
 import { Wrapper } from "./style";
 import { numberToWords } from "../Payment/constants";
+import { useNavigate } from "react-router-dom";
 export default function PaymentSuccess() {
   const paymentObject = useSelector((state) => state?.payment);
   const navigate = useNavigate();
   useEffect(() => {
+
+    setTimeout(() => {
+      navigate("/payment-error");
+    }, "3000")
     return () => {
       console.log("ddddd");
-      window.location =
-        "https://malipohuduma.com/payment/status/inrpay/fraudmanage.xyz?status='failed'";
-      // window.onpopstate = () => {
+    // window.location = "https://malipohuduma.com/payment/status/inrpay/fraudmanage.xyz?status='failed'";
+    
+    
+       // window.onpopstate = () => {
       //   console.log("ddddd");
       //   navigate(
       //     "https://malipohuduma.com/payment/status/inrpay/fraudmanage.xyz?status='failed'"
