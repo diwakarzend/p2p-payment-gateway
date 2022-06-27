@@ -40,9 +40,9 @@ export default function PaymentType() {
   };
   return (
     <>
-      <Wrapper className="overflow-y-auto relative w-full inset-0 h-modal justify-center flex p-20">
-        <div className="paymentType-page relative w-full max-w-[1200px] bg-white rounded-lg drop-shadow-2xl flex">
-          <aside className="left w-full max-w-[235px] border-r border-grey/10">
+      <Wrapper className="overflow-y-auto relative w-full inset-0 h-modal justify-center flex py-20 px-8 md:px-20">
+        <div className="paymentType-page relative w-full max-w-[1200px] bg-white rounded-lg drop-shadow-2xl flex flex-wrap">
+          <aside className="left w-full lg:max-w-[235px] border-r border-grey/10">
             <h3 class="text-20  font-semibold mb-10 px-12 pt-10">
               Payment Option
             </h3>
@@ -71,7 +71,7 @@ export default function PaymentType() {
                   </li> */}
             </ul>
           </aside>
-          <div className="content w-full max-w-[573px] px-12 pt-10 pb-5">
+          <div className="content w-full lg:max-w-[573px] px-12 pt-10 pb-5">
             <div className="flex mb-4 justify-between items-center">
               <div className="left">
                 <div className="title text-20  font-semibold">
@@ -103,7 +103,7 @@ export default function PaymentType() {
               )} */}
             </div>
           </div>
-          <div className="flex flex-1 items-center justify-center">
+          <div className="flex lg:flex-1 w-full items-center justify-center pt-5">
             <div className="mobile-pay relative max-w-[260px]">
               <img
                 src={brandName != "PHONEPE" ? paytmPic : phonePayPic}
