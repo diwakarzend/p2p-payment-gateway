@@ -50,7 +50,7 @@ export default function PaymentType() {
               <li
                 className={
                   activeTab === "tab1"
-                    ? "active px-12 cursor-pointer  font-semibold text-15 bg-bodyBg py-5 border-r-8 border-blue"
+                    ? "active px-12 cursor-pointer  font-semibold text-15 bg-bodyBg py-5 lg:border-r-8 lg:border-blue"
                     : "px-12 py-5 cursor-pointer text-grey/80 text-15 border-r-8 border-grey/0"
                 }
                 onClick={handleTab1}
@@ -103,7 +103,7 @@ export default function PaymentType() {
               )} */}
             </div>
           </div>
-          <div className="flex lg:flex-1 w-full items-center justify-center pt-5">
+          <div className="hidden lg:flex lg:flex-1 w-full items-center justify-center pt-5">
             <div className="mobile-pay relative max-w-[260px]">
               <img
                 src={brandName != "PHONEPE" ? paytmPic : phonePayPic}

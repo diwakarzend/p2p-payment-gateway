@@ -59,7 +59,7 @@ export const Wrapper = styled.div`
     border-radius: 25px;
     top: 14px;
   }
-  @media all and (max-width: 550px) {
+  @media all and (max-width: 768px) {
     .text-payment {
       font-size: 2.8vw;
       line-height: 3vw;
