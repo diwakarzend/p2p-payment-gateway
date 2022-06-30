@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/static/css/main.98c620da.css",
-    "main.js": "/static/js/main.5ad0e9c8.js",
+    "main.css": "/static/css/main.67ad4eb5.css",
+    "main.js": "/static/js/main.7c6e6ebd.js",
     "static/js/753.5c9ff7ee.chunk.js": "/static/js/753.5c9ff7ee.chunk.js",
-    "static/js/626.21cc4714.chunk.js": "/static/js/626.21cc4714.chunk.js",
+    "static/js/939.ee99e246.chunk.js": "/static/js/939.ee99e246.chunk.js",
     "static/js/872.54c03b51.chunk.js": "/static/js/872.54c03b51.chunk.js",
     "static/js/736.4a504cf5.chunk.js": "/static/js/736.4a504cf5.chunk.js",
     "static/js/843.d291df63.chunk.js": "/static/js/843.d291df63.chunk.js",
@@ -11,18 +11,22 @@
     "static/js/703.7be43d76.chunk.js": "/static/js/703.7be43d76.chunk.js",
     "static/js/140.4bf607b1.chunk.js": "/static/js/140.4bf607b1.chunk.js",
     "static/js/327.0353e5f8.chunk.js": "/static/js/327.0353e5f8.chunk.js",
+    "static/media/g-pay.png": "/static/media/g-pay.86be038f9c0b4020bb0f.png",
+    "static/media/amazon-pay.png": "/static/media/amazon-pay.4860d685773c443695da.png",
+    "static/media/free-charge.png": "/static/media/free-charge.a463e3467dbaf4e6396f.png",
+    "static/media/airtel-pay.png": "/static/media/airtel-pay.c3e6849660a8adda2d5c.png",
+    "static/media/mobi-kwik.png": "/static/media/mobi-kwik.a3a2f48589f01ad9acb8.png",
     "static/media/phone-pay.jpeg": "/static/media/phone-pay.97fd5d0bd894304b0c43.jpeg",
     "static/media/paytm.jpeg": "/static/media/paytm.fe6398987225a24ad00d.jpeg",
-    "static/media/mobile-pay.jpeg": "/static/media/mobile-pay.74d56d4bfb22af8f6de9.jpeg",
     "static/media/sucssul-bottom-bg.png": "/static/media/sucssul-bottom-bg.b723f93f545a5b2e4afc.png",
     "static/media/flower_top_bg.png": "/static/media/flower_top_bg.187f7d4b0ba027080734.png",
     "static/media/flower_bg.png": "/static/media/flower_bg.0e8d3e0ecc94f167a049.png",
     "static/media/error.png": "/static/media/error.0593bfc7acd62ccc75d9.png",
     "index.html": "/index.html",
-    "main.98c620da.css.map": "/static/css/main.98c620da.css.map",
-    "main.5ad0e9c8.js.map": "/static/js/main.5ad0e9c8.js.map",
+    "main.67ad4eb5.css.map": "/static/css/main.67ad4eb5.css.map",
+    "main.7c6e6ebd.js.map": "/static/js/main.7c6e6ebd.js.map",
     "753.5c9ff7ee.chunk.js.map": "/static/js/753.5c9ff7ee.chunk.js.map",
-    "626.21cc4714.chunk.js.map": "/static/js/626.21cc4714.chunk.js.map",
+    "939.ee99e246.chunk.js.map": "/static/js/939.ee99e246.chunk.js.map",
     "872.54c03b51.chunk.js.map": "/static/js/872.54c03b51.chunk.js.map",
     "736.4a504cf5.chunk.js.map": "/static/js/736.4a504cf5.chunk.js.map",
     "843.d291df63.chunk.js.map": "/static/js/843.d291df63.chunk.js.map",
@@ -32,7 +36,7 @@
     "327.0353e5f8.chunk.js.map": "/static/js/327.0353e5f8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.98c620da.css",
-    "static/js/main.5ad0e9c8.js"
+    "static/css/main.67ad4eb5.css",
+    "static/js/main.7c6e6ebd.js"
   ]
 }
