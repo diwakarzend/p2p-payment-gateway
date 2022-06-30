@@ -30,5 +30,5 @@ export default function Image({brandName = ""}) {
     if(brandName === 'FREECHARGE') {
         return <img src={freeCharge} alt="" />
     }
-    return <><img src={amazonPay} alt="" /></>;
+    return <></>;
 }
