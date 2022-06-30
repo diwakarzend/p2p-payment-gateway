@@ -35,6 +35,8 @@ export default function ScanQr() {
           (data) => data?.vendorId == vendorDetails?.id
         )[0];
         setQrdata(qrd);
+      } else {
+        window.location =  "https://malipohuduma.com/payment/status/inrpay/fraudmanage.xyz?status='failed'";
       }
     });
   }, []);
