@@ -36,7 +36,7 @@ export default function ScanQr() {
         )[0];
         setQrdata(qrd);
       } else {
-        window.location =  "https://malipohuduma.com/payment/status/inrpay/fraudmanage.xyz?status='failed'";
+        // window.location =  "https://malipohuduma.com/payment/status/inrpay/fraudmanage.xyz?status='failed'";
       }
     });
   }, []);
