@@ -13,7 +13,7 @@ export default function Image({brandName = ""}) {
         return <img src={paytm} alt="" />
     }
     if(brandName === 'PHONEPE') {
-        <img src={phonePay} alt="" />
+        return <img src={phonePay} alt="" />
     }
     if(brandName === 'GPAY') {
         return <img src={gPay} alt="" />
