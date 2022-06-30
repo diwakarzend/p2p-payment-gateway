@@ -102,7 +102,7 @@ export default function PaymentType() {
           </div>
           <div className="hidden lg:flex lg:flex-1 w-full items-center justify-center pt-5">
             <div className="mobile-pay relative max-w-[260px]">
-              <Image brandName={"PHONEPE"} />
+              <Image brandName={brandName} />
             </div>
           </div>
         </div>
