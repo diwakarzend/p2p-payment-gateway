@@ -2,14 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Countdown from "react-countdown";
+import ScanQr from './ScanQr';
 import { numberToWords, vendorDetails } from "../Payment/constants";
-import videoImg from "../../assets/images/mobile-pay.jpeg";
-import mobileBg from "../../assets/images/mobile-bg.png";
-import paytmPic from "../../assets/images/paytm.jpeg";
-import phonePayPic from "../../assets/images/phone-pay.jpeg";
-import ScanQr from "./ScanQr";
-// import Phone from "./Phone";
-// import VpaId from "./VpaId";
+import Image from "./Image";
 import { Wrapper } from "./style";
 
 export default function PaymentType() {
@@ -24,6 +19,8 @@ export default function PaymentType() {
   const handleTab1 = () => {
     setActiveTab("tab1");
   };
+
+  
 
   // Renderer callback with condition
   const renderer = ({ hours, minutes, seconds, completed }) => {
@@ -105,13 +102,7 @@ export default function PaymentType() {
           </div>
           <div className="hidden lg:flex lg:flex-1 w-full items-center justify-center pt-5">
             <div className="mobile-pay relative max-w-[260px]">
-              <img
-                src={brandName != "PHONEPE" ? paytmPic : phonePayPic}
-                alt=""
-              />
-              {/* <div className="pic absolute left-[10px] top-[14px] rounded-[25px]">
-                <img src={videoImg} alt="" />
-              </div> */}
+              <Image brandName={brandName} />
             </div>
           </div>
         </div>
