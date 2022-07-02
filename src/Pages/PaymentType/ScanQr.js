@@ -43,11 +43,22 @@ export default function ScanQr() {
 
   console.log("qrdata = ", qrdata);
 
+  const getReturnUrl = () => {
+    let url = "";
+    if(paymentObject?.clientId == '8cb076f0-1661-4994-8866-09927024c200') {
+      url = "https://malipohuduma.com/payment/status/inrpay/fraudmanage.xyz?status='failed'";
+    }
+    if(paymentObject?.clientId == '10a710c6-f90c-11ec-b939-0242ac120002') {
+      url = "https://dpboss888.com/server/api/inrpay/failed.php";
+    }
+    return url;
+  }
+
   if (!qrdata) {
     if (window.performance) {
       if (performance.navigation.type == 1) {
-        window.location =
-          "https://malipohuduma.com/payment/status/inrpay/fraudmanage.xyz?status='failed'";
+        
+        window.location = getReturnUrl();
       } else {
         //alert( "This page is not reloaded");
       }
