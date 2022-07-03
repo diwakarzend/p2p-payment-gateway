@@ -18,17 +18,16 @@ export default function ScanQr() {
 
   console.log("statessssss", paymentObject);
 
-  //const orderId = useSelector((state) => orderId));
-
-  // const clientId = vendorDetails?.clientId;
-  // console.log("client id",clientId);
-
-  // const orderId = vendorDetails?.orderId;
-  //  console.log("orderId",orderId);
+  const getUserUuid = () => {
+    let userUUID = "62a03898-1991-488c-bba1-711022d45ee4";
+    if(paymentObject?.clientId == '10a710c6-f90c-11ec-b939-0242ac120002') {
+      userUUID = 'd72e43c5-6f7f-40af-9566-99a58245557c';
+    }
+    return userUUID;
+  }
 
   useEffect(() => {
-    //  const queryParams = getQueryParams(location?.search);
-    const userUUID = "62a03898-1991-488c-bba1-711022d45ee4";
+    let userUUID = getUserUuid();
     getAllPtpsByMerchantId(userUUID).then((res) => {
       if (res?.data?.data) {
         const qrd = res?.data?.data.filter(
@@ -40,8 +39,6 @@ export default function ScanQr() {
       }
     });
   }, []);
-
-  console.log("qrdata = ", qrdata);
 
   const getReturnUrl = () => {
     let url = "";
@@ -63,14 +60,14 @@ export default function ScanQr() {
         //alert( "This page is not reloaded");
       }
     }
-    // window.paymentObject?.backurl
   }
 
   const onVerifyUtr = () => {
     if (utrId) {
+      let userUUID = getUserUuid();
       verifyUtrRequest(
         utrId,
-        "62a03898-1991-488c-bba1-711022d45ee4",
+        userUUID,
         paymentObject?.orderId
       ).then((res) => {
         console.log("logging here", res?.data.data.verified);
