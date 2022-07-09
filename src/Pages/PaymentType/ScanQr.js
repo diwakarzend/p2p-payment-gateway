@@ -23,6 +23,9 @@ export default function ScanQr() {
     if(paymentObject?.clientId == '10a710c6-f90c-11ec-b939-0242ac120002') {
       userUUID = 'd72e43c5-6f7f-40af-9566-99a58245557c';
     }
+    if(paymentObject?.clientId == 'a9641f64-ff71-11ec-b939-0242ac120002') {
+      userUUID = 'ce6b0e03-44b2-4ea4-a024-c6a1a70e445f';
+    }
     return userUUID;
   }
 
