@@ -6,6 +6,7 @@ import { getAllPtpsByMerchantId, verifyUtrRequest } from "../../utils/api";
 import ScanImage from "../../assets/images/scan-image.png";
 import SepratorImage from "../../assets/images/seprator.png";
 import SocialGroupImage from "../../assets/images/icons-group.png";
+import { isEmpty } from "../../utils/common";
 
 export default function ScanQr() {
   const paymentObject = useSelector((state) => state?.payment);
@@ -19,7 +20,10 @@ export default function ScanQr() {
   console.log("statessssss", paymentObject);
 
   const getUserUuid = () => {
-    let userUUID = "62a03898-1991-488c-bba1-711022d45ee4";
+    let userUUID = "";
+    if(paymentObject?.clientId == '8cb076f0-1661-4994-8866-09927024c200') {
+      userUUID = "62a03898-1991-488c-bba1-711022d45ee4";
+    }
     if(paymentObject?.clientId == '10a710c6-f90c-11ec-b939-0242ac120002') {
       userUUID = 'd72e43c5-6f7f-40af-9566-99a58245557c';
     }
@@ -31,20 +35,23 @@ export default function ScanQr() {
 
   useEffect(() => {
     let userUUID = getUserUuid();
-    getAllPtpsByMerchantId(userUUID).then((res) => {
-      if (res?.data?.data) {
-        const qrd = res?.data?.data.filter(
-          (data) => data?.vendorId == vendorDetails?.id
-        )[0];
-        setQrdata(qrd);
-      } else {
-        // window.location =  "https://malipohuduma.com/payment/status/inrpay/fraudmanage.xyz?status='failed'";
-      }
-    });
+    if(!isEmpty(userUUID)) {
+      getAllPtpsByMerchantId(userUUID).then((res) => {
+        if (res?.data?.data) {
+          const qrd = res?.data?.data.filter(
+            (data) => data?.vendorId == vendorDetails?.id
+          )[0];
+          setQrdata(qrd);
+        } else {
+          // window.location =  "https://malipohuduma.com/payment/status/inrpay/fraudmanage.xyz?status='failed'";
+        }
+      });
+    }
+    
   }, []);
 
   const getReturnUrl = () => {
-    let url = "";
+    let url = "https://malipohuduma.com/payment/status/inrpay/fraudmanage.xyz?status='failed'";
     if(paymentObject?.clientId == '8cb076f0-1661-4994-8866-09927024c200') {
       url = "https://malipohuduma.com/payment/status/inrpay/fraudmanage.xyz?status='failed'";
     }
