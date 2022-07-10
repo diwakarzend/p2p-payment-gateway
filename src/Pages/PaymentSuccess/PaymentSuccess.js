@@ -9,25 +9,17 @@ export default function PaymentSuccess() {
   const paymentObject = useSelector((state) => state?.payment);
   const navigate = useNavigate();
   useEffect(() => {
-
-    setTimeout(() => {
-      navigate("/payment-error");
-    }, "3000")
-    return () => {
-      console.log("ddddd");
-    // window.location = "https://malipohuduma.com/payment/status/inrpay/fraudmanage.xyz?status='failed'";
-    
-    
-       // window.onpopstate = () => {
-      //   console.log("ddddd");
-      //   navigate(
-      //     "https://malipohuduma.com/payment/status/inrpay/fraudmanage.xyz?status='failed'"
-      //   );
-      //   window.location =
-      //     "https://malipohuduma.com/payment/status/inrpay/fraudmanage.xyz?status='failed'";
-      // };
-    };
-  }, []);
+    if(paymentObject?.clientId) {
+      setTimeout(() => {
+        if(paymentObject.clientId == "10a710c6-f90c-11ec-b939-0242ac120002") {
+          window.location = "https://dpboss888.com/server/razorpay/success.php?status=success";
+        } else {
+          navigate("/payment-error");
+        }
+        
+      }, "3000")
+    }
+  }, [paymentObject]);
 
   return (
     <>
