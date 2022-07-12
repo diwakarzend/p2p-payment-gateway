@@ -14,6 +14,7 @@ export default function ScanQr() {
   const [utrId, setUtrId] = useState("");
   const [qrdata, setQrdata] = useState(null);
   const [error, setError] = useState("");
+  const [disabled, setDisabled] = useState(false);
 
   const vendorDetails = useSelector((state) => state?.vendorDetails?.data);
 
@@ -73,6 +74,7 @@ export default function ScanQr() {
   }
 
   const onVerifyUtr = () => {
+    setDisabled(true);
     if (utrId) {
       let userUUID = getUserUuid();
       verifyUtrRequest(
@@ -85,6 +87,7 @@ export default function ScanQr() {
           navigate("/payment-success");
         } else {
           setError("Invalid UTR Number");
+          setDisabled(false);
         }
       });
     }
@@ -148,6 +151,7 @@ export default function ScanQr() {
               </div>
               <div className="action w-full left-0 flex mt-8">
                 <button
+                  disabled={disabled}
                   onClick={() => onVerifyUtr()}
                   className="btn btn-primary bg-red rounded-lg text-white py-3 px-4 text-15 h-[50px] font-semibold w-full"
                 >
