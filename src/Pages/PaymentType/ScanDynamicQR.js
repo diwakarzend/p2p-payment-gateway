@@ -58,6 +58,11 @@ export default function ScanDynamicQR({amount, orderId = "ORDER19239393"}) {
     <>
       <div className="relative">
         <div className="group-wrap">
+          <div className="scan-outer relative max-w-[300px] w-full mx-auto my-20 h-[300px] overflow-hidden">
+            <div className="scan-inner relative w-full h-full flex items-center justify-center">
+              <img src={base64} alt="Scanner" />
+            </div>
+          </div>
           <div className="py-5 mb-5 px-8 flex justify-center items-center">
             <button
                 onClick={() => changeQRCode()}
@@ -65,11 +70,6 @@ export default function ScanDynamicQR({amount, orderId = "ORDER19239393"}) {
             >
                 CHANGE QR CODE
             </button>
-          </div>
-          <div className="scan-outer relative max-w-[300px] w-full mx-auto my-20 h-[300px] overflow-hidden">
-            <div className="scan-inner relative w-full h-full flex items-center justify-center">
-              <img src={base64} alt="Scanner" />
-            </div>
           </div>
         </div>
       </div>
