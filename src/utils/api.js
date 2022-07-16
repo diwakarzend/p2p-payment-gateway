@@ -38,6 +38,14 @@ export const verifyUtrRequest = (id, clientId, orderId) => {
   return apiRequest.get(`${config.apis.VERIFY_UTR_ID}/${id}/${clientId}/${orderId}`, {});
 };
 
+export const getDynamicQRCodeRequest = (amount, orderId, vendorId = "14") => {
+  return apiRequest.get(`${config.apis.GET_DYNAMIC_QR_CODE}/${amount}/${orderId}/${vendorId}`, {});
+}
+
+export const getDynamicQRStatusRequest = (orderId) => {
+  return apiRequest.get(`${config.apis.GET_DYNAMIC_QR_STATUS}/${orderId}`, {});
+}
+
 // amount,
 // txnType,
 // custName,

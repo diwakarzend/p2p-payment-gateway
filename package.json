@@ -48,5 +48,5 @@
     "postcss": "^8.4.13",
     "tailwindcss": "^3.0.24"
   },
-  "proxy": "https://vendor-apiservice.pay2mobiles.com:8443"
+  "proxy": "https://service-api.digitpay.pro"
 }

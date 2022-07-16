@@ -6,6 +6,7 @@ import ScanQr from './ScanQr';
 import { numberToWords, vendorDetails } from "../Payment/constants";
 import Image from "./Image";
 import { Wrapper } from "./style";
+import ScanDynamicQR from "./ScanDynamicQR";
 
 export default function PaymentType() {
   const paymentObject = useSelector((state) => state?.payment);
@@ -16,11 +17,10 @@ export default function PaymentType() {
   );
   const [activeTab, setActiveTab] = useState("tab1");
   const navigate = useNavigate();
-  const handleTab1 = () => {
-    setActiveTab("tab1");
-  };
 
-  
+  const handleTab = (tabName) => {
+    setActiveTab(tabName);
+  };
 
   // Renderer callback with condition
   const renderer = ({ hours, minutes, seconds, completed }) => {
@@ -50,10 +50,20 @@ export default function PaymentType() {
                     ? "active px-12 cursor-pointer  font-semibold text-15 bg-bodyBg py-5 lg:border-r-8 lg:border-blue"
                     : "px-12 py-5 cursor-pointer text-grey/80 text-15 border-r-8 border-grey/0"
                 }
-                onClick={handleTab1}
+                onClick={() => handleTab("tab1")}
               >
-                Scan QR Code
+                Scan Dynamic QR
               </li>
+              {/* <li
+                className={
+                  activeTab === "tab2"
+                    ? "active px-12 cursor-pointer  font-semibold text-15 bg-bodyBg py-5 lg:border-r-8 lg:border-blue"
+                    : "px-12 py-5 cursor-pointer text-grey/80 text-15 border-r-8 border-grey/0"
+                }
+                onClick={() => handleTab("tab2")}
+              >
+                Scan Static QR
+              </li> */}
               {/* <li
                   className={activeTab === "tab2" ? "active px-12 cursor-pointer  font-semibold text-15 bg-bodyBg py-5 border-r-8 border-blue" : "px-12 py-5 cursor-pointer text-grey/80 text-15 border-r-8 border-grey/0"}
                   onClick={handleTab2}
@@ -85,26 +95,26 @@ export default function PaymentType() {
               </div>
               <div className="right">
                 <div className="timer text text-16 text-grey/80">
-                  <Countdown date={Date.now() + 899000} renderer={renderer} />
+                  <Countdown date={Date.now() + 299666} renderer={renderer} />
                 </div>
               </div>
             </div>
             <div className="innerContent">
-              <ScanQr orderId={paymentObject?.orderId} />
-              {/* {activeTab === "tab1" ? (
-                <ScanQr />
-              ) : activeTab === "tab2" ? (
-                <Phone />
-              ) : (
-                <VpaId />
-              )} */}
+              {
+                activeTab === 'tab1' && <ScanDynamicQR orderId={paymentObject?.orderId} />
+              }
+              {/* {
+                activeTab === 'tab2' && <ScanQr orderId={paymentObject?.orderId} />
+              } */}
             </div>
           </div>
-          <div className="hidden lg:flex lg:flex-1 w-full items-center justify-center pt-5">
-            <div className="mobile-pay relative max-w-[260px]">
-              <Image brandName={brandName} />
+          {/* {activeTab === 'tab2' &&
+            <div className="hidden lg:flex lg:flex-1 w-full items-center justify-center pt-5">
+              <div className="mobile-pay relative max-w-[260px]">
+                <Image brandName={brandName} />
+              </div>
             </div>
-          </div>
+          } */}
         </div>
       </Wrapper>
     </>
