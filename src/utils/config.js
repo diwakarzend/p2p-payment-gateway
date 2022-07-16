@@ -9,7 +9,7 @@ export default {
     VERIFY_UTR_ID: "/api/merchant/verifyUTR",
     PTP_BY_MERCHANT_ID: "/api/ptp/ptp-details",
     PTP_AUTH_BY_HASH: "/api/authenticateByHash",
-    GET_DYNAMIC_QR_CODE: "api/qr/transaction",
-    GET_DYNAMIC_QR_STATUS: "api/merchant/verifyOnlyByOrderId",
+    GET_DYNAMIC_QR_CODE: "/api/qr/transaction",
+    GET_DYNAMIC_QR_STATUS: "/api/merchant/verifyOnlyByOrderId",
   },
 };
