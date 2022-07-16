@@ -101,7 +101,7 @@ export default function PaymentType() {
             </div>
             <div className="innerContent">
               {
-                activeTab === 'tab1' && <ScanDynamicQR orderId={paymentObject?.orderId} />
+                activeTab === 'tab1' && <ScanDynamicQR amount={paymentObject?.totalAmount} orderId={paymentObject?.orderId} />
               }
               {/* {
                 activeTab === 'tab2' && <ScanQr orderId={paymentObject?.orderId} />

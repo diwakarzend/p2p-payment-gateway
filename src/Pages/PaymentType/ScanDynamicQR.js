@@ -5,7 +5,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { getAllPtpsByMerchantId, getDynamicQRCodeRequest, getDynamicQRStatusRequest } from "../../utils/api";
 import { isEmpty } from "../../utils/common";
 
-export default function ScanDynamicQR({amount = 1, orderId = "ORDER19239393"}) {
+export default function ScanDynamicQR({amount, orderId = "ORDER19239393"}) {
   const paymentAmount = useSelector((state) => state?.payment?.amount);
   const vendorDetails = useSelector((state) => state?.vendorDetails?.data);
   const navigate = useNavigate();
@@ -50,7 +50,7 @@ export default function ScanDynamicQR({amount = 1, orderId = "ORDER19239393"}) {
     }
   }, [paymentAmount]);
 
-// localhost:3000/payment-options?apiKey=3e5b6dbe4ce146559d599f6b2073528f&clientId=8cb076f0-1661-4994-8866-09927024c200&amount=100&orderId=107052334303643&hash=1468DCCDE1741704EB65DE8B27C6674F16597EE7BB9479D4B68C1D22F7D28A0E
+// https://payment.digitpay.pro/payment-options?apiKey=3e5b6dbe4ce146559d599f6b2073528f&clientId=8cb076f0-1661-4994-8866-09927024c200&amount=100&orderId=107052334303643&hash=1468DCCDE1741704EB65DE8B27C6674F16597EE7BB9479D4B68C1D22F7D28A0E
 
   
 
